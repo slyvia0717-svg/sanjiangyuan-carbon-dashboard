@@ -1,0 +1,10 @@
+{
+  "analysis_resolution_m": 300,
+  "historical_years": [2005, 2010, 2015, 2020, 2025],
+  "forecast_years": [2030, 2035],
+  "scenario": "business_as_usual",
+  "clcd_directory": "data/raw/clcd",
+  "boundary_directory": "data/raw/boundary",
+  "carbon_pool_table": "parameters/carbon_pools_baseline_terrestrial.csv",
+  "invest_version": "3.20.2"
+}

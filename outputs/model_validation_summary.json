@@ -1,0 +1,77 @@
+{
+  "model": "ExtraTreesClassifier",
+  "analysis_resolution_m": 300,
+  "training_rows": 696047,
+  "training_periods": [
+    [
+      2005,
+      2010
+    ],
+    [
+      2010,
+      2015
+    ],
+    [
+      2015,
+      2020
+    ]
+  ],
+  "validation_period": [
+    2020,
+    2025
+  ],
+  "validation": {
+    "model": {
+      "overall_accuracy": 0.95021299137965,
+      "kappa": 0.8700146935392628,
+      "macro_f1": 0.7688073239102818,
+      "binary_change_precision": 0.3561240434312272,
+      "binary_change_recall": 0.3338278374521145,
+      "binary_change_f1": 0.3446156828535427,
+      "true_change_rate": 0.038856515755816584,
+      "predicted_change_rate": 0.036423787904658084,
+      "destination_accuracy_on_true_changed_pixels": 0.3222601968001202
+    },
+    "persistence_baseline": {
+      "overall_accuracy": 0.9611434842441834,
+      "kappa": 0.8975144807317785,
+      "macro_f1": 0.7841320897076315,
+      "binary_change_precision": 0.0,
+      "binary_change_recall": 0.0,
+      "binary_change_f1": 0.0,
+      "true_change_rate": 0.038856515755816584,
+      "predicted_change_rate": 0.0,
+      "destination_accuracy_on_true_changed_pixels": 0.0
+    }
+  },
+  "forecast_years": [
+    2030,
+    2035
+  ],
+  "historical_origin_change_rates": {
+    "1": 0.0,
+    "2": 0.0282087703962704,
+    "3": 0.4444444444444444,
+    "4": 0.025774355875288563,
+    "5": 0.021399407387619307,
+    "6": 0.10406922192510785,
+    "7": 0.08118152878930492,
+    "8": 0.0,
+    "9": 0.0
+  },
+  "feature_count": 27,
+  "features": [
+    "current_lulc",
+    "previous_lulc",
+    "recent_change",
+    "elevation",
+    "slope",
+    "aspect_sin",
+    "aspect_cos",
+    "row",
+    "column",
+    "3x3 class proportions (1-9)",
+    "11x11 class proportions (1-9)"
+  ],
+  "scope_note": "Exploratory BAU forecast; climate and accessibility drivers are not yet included."
+}

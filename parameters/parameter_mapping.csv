@@ -1,0 +1,10 @@
+﻿lucode,clcd_class_zh,baseline_c_above,baseline_c_below,baseline_c_soil,baseline_c_dead,evidence_level,treatment_note
+1,耕地,1.02,6.15,90.48,3.3,proxy,CLCD mapped area is negligible; grassland proxy avoids an unsupported high cropland value.
+2,森林,11.08,30.3,143.82,6.71,direct,Direct Sanjiangyuan National Park InVEST parameter.
+3,灌木,1.49,21.1,98.18,3.67,direct,Direct Sanjiangyuan National Park InVEST parameter.
+4,草地,1.02,6.15,90.48,3.3,direct,Direct Sanjiangyuan National Park InVEST parameter.
+5,水体,0,0,0,0,decision,"Baseline excludes sediment because CLCD water pixels describe surface water, while InVEST terrestrial carbon pools do not model sediment depth or burial."
+6,冰雪,0,0,0,0,split,Set to zero; the source combined snow/ice/bare value is attributed to sparse/bare soil rather than glacier surfaces.
+7,裸地,0.34,0,28.44,0,split,Receives the source combined snow/ice/bare parameter because it contains the residual vegetation and soil carbon.
+8,不透水面,0,0,0,0,proxy,Set to zero; mapped area is one 30 m pixel and has no material influence.
+9,湿地,1.02,6.15,117.27,3.3,proxy,Grassland biomass plus 117.27 t C/ha soil proxy; mapped area is negligible and regional studies support wetland SOC exceeding meadow SOC.

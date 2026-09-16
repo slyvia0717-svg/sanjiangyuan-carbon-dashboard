@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>三江源土地覆盖与碳储量 Dashboard</title>
+  <meta name="description" content="2005—2035三江源土地覆盖变化、BAU情景预测与InVEST碳储量可视化。" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308232d'/%3E%3Cpath d='M8 47 24 19l9 15 7-11 16 24H8Z' fill='%236bd4b1'/%3E%3Cpath d='M17 47c9-7 20-8 30 0' fill='none' stroke='%23eef8f4' stroke-width='4'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">源</span><div><h1>三江源碳景观</h1><p>土地覆盖变化与碳储量 · 2005—2035</p></div></div>
+    <div class="status"><span></span> InVEST 3.20.2 已复核</div>
+  </header>
+
+  <main>
+    <section class="control-strip" aria-label="Dashboard controls">
+      <div class="segmented" role="tablist" aria-label="图层">
+        <button class="active" data-layer="lulc">土地覆盖</button>
+        <button data-layer="carbon">碳储量</button>
+        <button data-layer="change">碳变化</button>
+      </div>
+      <div class="year-control">
+        <label for="yearSlider">年份</label>
+        <input id="yearSlider" type="range" min="0" max="6" step="1" value="4" />
+        <div id="yearTicks" class="year-ticks"></div>
+      </div>
+      <label class="select-wrap">园区
+        <select id="parkSelect"><option value="all">整个研究区</option></select>
+      </label>
+    </section>
+
+    <section class="overview-grid">
+      <article class="map-card panel">
+        <div class="panel-heading">
+          <div><span id="periodBadge" class="badge observed">历史观测</span><h2 id="mapTitle">2025 土地覆盖</h2></div>
+          <span class="map-meta">300 m · Albers等积投影</span>
+        </div>
+        <div class="map-stage">
+          <img id="mapImage" alt="三江源土地覆盖地图" />
+          <img id="parkOverlay" class="park-overlay" alt="" aria-hidden="true" />
+          <div id="mapLegend" class="map-legend"></div>
+          <div class="north">N<span>↑</span></div>
+        </div>
+      </article>
+
+      <aside class="metrics">
+        <article class="metric-card dark"><span>碳储量</span><strong id="carbonValue">—</strong><small>Mt C</small><em id="carbonDelta">—</em></article>
+        <article class="metric-card"><span>研究面积</span><strong id="areaValue">—</strong><small>km²</small><em>统一300米有效网格</em></article>
+        <article class="metric-card"><span>主导地类</span><strong id="dominantClass">—</strong><small id="dominantShare">—</small><em id="dominantArea">—</em></article>
+        <article class="metric-card model"><div><span>预测模型</span><b>Extra Trees</b></div><div class="score"><strong>0.345</strong><small>变化 F1</small></div><p>2030/2035为探索性BAU情景，未加入气候与可达性变量。</p></article>
+      </aside>
+    </section>
+
+    <section class="analytics-grid">
+      <article class="panel chart-panel">
+        <div class="panel-heading"><div><span class="eyebrow">时间序列</span><h2>碳储量变化</h2></div><span class="legend-inline"><i></i>历史 <i></i>BAU预测</span></div>
+        <svg id="carbonChart" viewBox="0 0 760 300" role="img" aria-label="2005至2035碳储量时间序列"></svg>
+      </article>
+      <article class="panel chart-panel">
+        <div class="panel-heading"><div><span class="eyebrow">土地构成</span><h2 id="classChartTitle">2025 地类面积</h2></div><span class="unit">km²</span></div>
+        <div id="classBars" class="class-bars"></div>
+      </article>
+    </section>
+
+    <section class="analytics-grid lower">
+      <article class="panel transition-panel">
+        <div class="panel-heading"><div><span class="eyebrow">变化归因</span><h2 id="transitionTitle">2020—2025 主要转移</h2></div><span class="unit">按碳贡献绝对值</span></div>
+        <div id="transitionList" class="transition-list"></div>
+      </article>
+      <article class="panel method-panel">
+        <span class="eyebrow">如何阅读</span><h2>范围与可信度</h2>
+        <div class="method-grid">
+          <div><b>历史期</b><p>2005—2025 CLCD观测数据，经众数聚合至300米。</p></div>
+          <div><b>预测期</b><p>2030、2035由历史转移、邻域与地形特征驱动。</p></div>
+          <div><b>碳核算</b><p>七期统一使用基准碳库表，并经InVEST逐像元复核。</p></div>
+          <div><b>解释限制</b><p>未来结果代表BAU情景，不是确定性预报。</p></div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer>三江源国家公园体制试点范围 · 数据分析成果用于区域尺度情景研究</footer>
+  <div id="tooltip" class="tooltip"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
